@@ -1,0 +1,495 @@
+Compilation:  PASSED
+API:          PASSED
+
+Findbugs:     PASSED
+Checkstyle:   FAILED (45 warnings)
+
+Correctness:  22/42 tests passed
+Memory:       8/11 tests passed
+Timing:       0/17 tests passed
+
+Aggregate score: 48.70%
+[Compilation: 5%, API: 5%, Findbugs: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
+
+ASSESSMENT DETAILS
+
+The following files were submitted:
+----------------------------------
+5.4K Jun  8 09:23 Board.java
+3.1K Jun  8 09:23 Solver.java
+
+
+********************************************************************************
+*  COMPILING                                                                    
+********************************************************************************
+
+
+% javac Board.java
+*-----------------------------------------------------------
+
+% javac Solver.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+Checking the APIs of your programs.
+*-----------------------------------------------------------
+Board:
+
+Solver:
+
+================================================================
+
+
+********************************************************************************
+*  CHECKING STYLE AND COMMON BUG PATTERNS                                       
+********************************************************************************
+
+
+% findbugs *.class
+*-----------------------------------------------------------
+
+================================================================
+
+
+% checkstyle *.java
+*-----------------------------------------------------------
+Board.java:17:18: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:35:44: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:35:65: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:44:19: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:57:11: '//' or '/*' is not followed by whitespace. [IllegalTokenText]
+Board.java:72:44: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:72:65: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:81:26: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:83:24: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:85:26: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:87:27: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:93:19: '//' or '/*' is not followed by whitespace. [IllegalTokenText]
+Board.java:102:23: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:104:70: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:106:75: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:108:33: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:113:27: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:122:28: ';' is not followed by whitespace. [WhitespaceAfter]
+Board.java:130:38: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:145:43: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:147:47: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:149:43: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:151:47: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:151:78: ',' is preceded with whitespace. [NoWhitespaceBefore]
+Board.java:151:80: ',' is not followed by whitespace. [WhitespaceAfter]
+Board.java:170:29: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:172:24: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:173:28: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:177:43: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:181:24: '(' is preceded with whitespace. [MethodParamPad]
+Board.java:196:3: The comment is empty. [IllegalTokenText]
+Solver.java:19:19: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:30:22: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:31:22: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:42:59: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:54:27: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:56:31: '(' is preceded with whitespace. [MethodParamPad]
+Solver.java:63:58: '<' is preceded with whitespace. [GenericWhitespace]
+Solver.java:63:71: '>' is followed by an illegal character. [GenericWhitespace]
+...
+ Checkstyle ends with 45 errors.
+
+================================================================
+
+
+********************************************************************************
+*  TESTING CORRECTNESS
+********************************************************************************
+
+Testing correctness of Board
+*-----------------------------------------------------------
+Running 22 total tests.
+
+Tests 5, 6, 13, and 14 rely upon toString() returning results in prescribed format.
+
+Test 1a: Test hamming() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle07.txt
+  * puzzle17.txt
+  * puzzle27.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 1b: Test hamming() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 2a: Test manhattan() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle07.txt
+  * puzzle17.txt
+  * puzzle27.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 2b: Test manhattan() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 3: Test dimension() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+==> passed
+
+Test 4a: Test toString() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 4b: Test toString() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 5a: Test neighbors() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 5b: Test neighbors() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+  * 127-by-127
+==> passed
+
+Test 6a: Test neighbors() of neigbors() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 6b: Test neighbors() of neighbors() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+==> passed
+
+Test 7a: Test twin() with file inputs
+  * puzzle04.txt
+  * puzzle00.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 7b: Test twin() with random n-by-n boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 9-by-9
+  * 10-by-10
+==> passed
+
+Test 8a: Test isGoal() on file inputs
+  * puzzle00.txt
+  * puzzle04.txt
+  * puzzle16.txt
+  * puzzle06.txt
+  * puzzle09.txt
+  * puzzle23.txt
+  * puzzle2x2-unsolvable1.txt
+  * puzzle3x3-unsolvable1.txt
+  * puzzle3x3-00.txt
+  * puzzle4x4-00.txt
+==> passed
+
+Test 8b: Test isGoal() on n-by-n goal boards
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+  * 5-by-5
+  * 6-by-6
+  * 100-by-100
+==> passed
+
+Test 9: Check whether two Board objects can be created at the same time
+  * random 3-by-3 and 3-by-3 boards
+  * random 4-by-4 and 4-by-4 boards
+  * random 2-by-2 and 2-by-2 boards
+  * random 3-by-3 and 4-by-4 boards
+  * random 4-by-4 and 3-by-3 boards
+==> passed
+
+Test 10a: Check equals()
+  * reflexive
+  * symmetric
+  * checks that individual entries of array are equal
+  * argument is object of type String
+  * argument is object of type Object
+  * argument is null
+  * argument is Board of different dimension
+==> passed
+
+Test 10b: Test equals() on m-by-m vs. n-by-n goal boards
+  * m = 2, n = 2
+  * m = 3, n = 3
+  * m = 4, n = 4
+  * m = 2, n = 5
+  * m = 5, n = 2
+==> passed
+
+Test 11: Check that Board is immutable by changing argument array after
+         construction and making sure Board does not mutate
+==> passed
+
+Test 12: Check that Board is immutable by testing whether methods
+         return the same value, regardless of order in which called
+  * puzzle10.txt
+  * puzzle20.txt
+  * puzzle30.txt
+  * 2-by-2
+  * 3-by-3
+  * 4-by-4
+==> passed
+
+Test 13: Call hamming() on a board that is kth-neighbor of a board
+  * 0th neighbor of puzzle27.txt
+  * 1th neighbor of puzzle27.txt
+  * 2th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle00.txt
+  * 13th neighbor of puzzle2x2-unsolvable1.txt
+==> passed
+
+Test 14: Call manhattan() on a board that is a kth-neighbor of a board
+  * 0th neighbor of puzzle27.txt
+  * 1th neighbor of puzzle27.txt
+  * 2th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle27.txt
+  * 13th neighbor of puzzle00.txt
+  * 13th neighbor of puzzle2x2-unsolvable1.txt
+==> passed
+
+
+Total: 22/22 tests passed!
+
+
+================================================================
+********************************************************************************
+*  TESTING CORRECTNESS (substituting reference Board)
+********************************************************************************
+
+Testing correctness of Solver
+*-----------------------------------------------------------
+Running 20 total tests.
+
+Test 1: Call moves() with file inputs
+  * puzzle00.txt
+  * puzzle01.txt
+  * puzzle02.txt
+  * puzzle03.txt
+  * puzzle04.txt
+  * puzzle05.txt
+  * puzzle06.txt
+  * puzzle07.txt
+    - moves() returns wrong value
+    - student   moves() = 8
+    - reference moves() = 7
+    - board =
+        3
+         1  2  3 
+         0  7  6 
+         5  4  8 
+  * puzzle08.txt
+    - moves() returns wrong value
+    - student   moves() = 9
+    - reference moves() = 8
+    - board =
+        3
+         2  3  5 
+         1  0  4 
+         7  8  6 
+  * puzzle09.txt
+  * puzzle10.txt
+  * puzzle11.txt
+    
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        OperationCountLimitExceededException
+        Number of calls to insert(), delMin(), and min() in MinPQ exceeds limit: 10000000
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+==> FAILED
+
+Test 2: Call solution() with file inputs
+  * puzzle00.txt
+  * puzzle01.txt
+  * puzzle02.txt
+  * puzzle03.txt
+  * puzzle04.txt
+  * puzzle05.txt
+  * puzzle06.txt
+  * puzzle07.txt
+    - number of boards in solution() does not equal to 1 + moves()
+      (it should be 1 greater because solution() starts with the inital board)
+    - length of solution() = 8
+    - moves()              = 8
+  * puzzle08.txt
+    - number of boards in solution() does not equal to 1 + moves()
+      (it should be 1 greater because solution() starts with the inital board)
+    - length of solution() = 9
+    - moves()              = 9
+  * puzzle10.txt
+  * puzzle15.txt
+==> FAILED
+
+Test 3: Create two Solver objects at the same time
+  * puzzle04.txt and puzzle04.txt
+  * puzzle00.txt and puzzle04.txt
+  * puzzle04.txt and puzzle00.txt
+==> passed
+
+Test 4a: Call isSolvable() with file inputs
+  * puzzle01.txt
+  * puzzle03.txt
+  * puzzle04.txt
+  * puzzle17.txt
+    
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        OperationCountLimitExceededException
+        Number of calls to insert(), delMin(), and min() in MinPQ exceeds limit: 10000000
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+==> FAILED
+
+Test 4b: Call isSolvable() on random n-by-n boards
+  * 100 random 2-by-2 boards
+    
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        OperationCountLimitExceededException
+        Number of calls to insert(), delMin(), and min() in MinPQ exceeds limit: 10000000
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    - failed on trial 1 of 100
+==> FAILED
+
+Test 5: Call moves() on unsolvable puzzles
+  * puzzle2x2-unsolvable1.txt
+    - moves() returns wrong value
+    - student   moves() = 1
+    - reference moves() = -1
+    - board =
+        2
+         1  0 
+         2  3 
+  * puzzle2x2-unsolvable2.txt
+    - moves() returns wrong value
+    - student   moves() = 2
+    - reference moves() = -1
+    - board =
+        2
+         0  1 
+         2  3 
+  * puzzle3x3-unsolvable1.txt
+
+
+Total: 0/20 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Computing memory of Board
+*-----------------------------------------------------------
+Running 8 total tests.
+
+Memory usage of an n-by-n board
+
+              n       student (bytes)    reference (bytes)
+----------------------------------------------------------
+=> passed     4           256                  240
+=> passed     8           576                  560
+=> passed    12          1024                 1008
+=> passed    16          1600                 1584
+=> passed    20          2304                 2288
+=> passed    36          6400                 6384
+=> passed    72         23104                23088
+=> passed   120         61504                61488
+==> 8/8 tests passed
+
+Total: 8/8 tests passed!
+
+Student   memory = 4.00 n^2 + 32.00 n + 64.00   (R^2 = 1.000)
+Reference memory = 4.00 n^2 + 32.00 n + 48.00   (R^2 = 1.000)
+
+================================================================
+
+
+
+Computing memory of Solver
+*-----------------------------------------------------------
+Running 3 total tests.
+
+
+Total: 0/3 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+
+
+
+********************************************************************************
+*  TIMING                                                                  
+********************************************************************************
+
+Timing Solver
+*-----------------------------------------------------------
+Running 17 total tests.
+
+Timing tests use your implementation of Board.java and Solver.java.
+Maximum time allowed per puzzle is 10 seconds.
+
+               filename   N    seconds    insert()            delMin()         max PQ size
+---------------------------------------------------------------------------------------------
+
+
+Total: 0/17 tests passed: Could not complete tests, which results in a reported score of 0.
+================================================================
+

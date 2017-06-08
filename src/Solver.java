@@ -12,8 +12,6 @@ public class Solver {
     private boolean solvable;
     private int moves;
     private Stack<Board> solution;
-    private MinPQ<SearchNode> minPQ;
-
 
 
     public Solver (Board initial) {
@@ -22,7 +20,7 @@ public class Solver {
 
         moves = 0;
         solvable = false;
-        minPQ = new MinPQ<>();
+        MinPQ<SearchNode> minPQ = new MinPQ<>();
         solution = new Stack<>();
 
 //        SearchNode initNode = new SearchNode(initial, false);
@@ -35,11 +33,10 @@ public class Solver {
         do {
             min = minPQ.delMin();
             for (Board nextBoard : min.board.neighbors()) {
-                SearchNode nextNode = new SearchNode(nextBoard, min.twin);
-                nextNode.moves = moves + 1;
-                nextNode.prewNode = min;
-
-                if (!nextNode.equals(min)) { minPQ.insert (nextNode); }
+                    SearchNode nextNode = new SearchNode(nextBoard, min.twin);
+                    nextNode.moves = min.moves + 1;
+                    nextNode.prewNode = min;
+                if (!nextBoard.equals(min.board)) { minPQ.insert (nextNode); }
             }
             moves++;
         } while (!min.board.isGoal());
@@ -50,6 +47,7 @@ public class Solver {
             solvable = false;
         } else {
             solvable = true;
+            moves = min.moves;
 
             solution.push (min.board);
             while (min.prewNode != null) {
@@ -63,7 +61,7 @@ public class Solver {
     private static class SearchNode implements Comparable <SearchNode>{
 
         private int moves;
-        private int priority;
+//        private int priority;
         private boolean twin;
         private SearchNode prewNode;
         private Board board;
@@ -75,12 +73,12 @@ public class Solver {
             moves = 0;
             prewNode = null;
 
-            priority = moves + board.manhattan();
-
+//            priority = moves + board.manhattan();
         }
 
         @Override
-        public int compareTo (SearchNode that) { return priority - that.priority; }
+        public int compareTo (SearchNode that) { return (moves + board.manhattan()) - (that.moves + that.board.manhattan()); }
+
     }
 
     public boolean isSolvable () { return solvable; }
