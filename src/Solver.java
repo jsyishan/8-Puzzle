@@ -21,7 +21,6 @@ public class Solver {
         moves = 0;
         solvable = false;
         MinPQ<SearchNode> minPQ = new MinPQ<>();
-        solution = new Stack<>();
 
 //        SearchNode initNode = new SearchNode(initial, false);
 //        SearchNode initTwinNode = new SearchNode(initial.twin(), true);
@@ -33,22 +32,27 @@ public class Solver {
         do {
             min = minPQ.delMin();
             for (Board nextBoard : min.board.neighbors()) {
+                if (min.prewNode == null || !nextBoard.equals (min.prewNode.board)) {
                     SearchNode nextNode = new SearchNode(nextBoard, min.twin);
                     nextNode.moves = min.moves + 1;
                     nextNode.prewNode = min;
-                if (!nextBoard.equals(min.board)) { minPQ.insert (nextNode); }
+                    minPQ.insert (nextNode);
+                }
+//                if (!nextBoard.equals(min.board)) { minPQ.insert (nextNode); }
             }
-            moves++;
+//            moves++;
         } while (!min.board.isGoal());
-        moves--;
+//        moves--;
 
         if (min.twin) {
             min.moves = -1;
+            moves = min.moves;
             solvable = false;
         } else {
             solvable = true;
             moves = min.moves;
 
+            solution = new Stack<>();
             solution.push (min.board);
             while (min.prewNode != null) {
                 solution.push (min.prewNode.board);
@@ -61,7 +65,7 @@ public class Solver {
     private static class SearchNode implements Comparable <SearchNode>{
 
         private int moves;
-//        private int priority;
+        private int priority;
         private boolean twin;
         private SearchNode prewNode;
         private Board board;
@@ -71,13 +75,16 @@ public class Solver {
             this.board = board;
             this.twin = twin;
             moves = 0;
+            priority();
             prewNode = null;
 
 //            priority = moves + board.manhattan();
         }
 
+        private int priority () { return priority = moves + board.manhattan(); }
+
         @Override
-        public int compareTo (SearchNode that) { return (moves + board.manhattan()) - (that.moves + that.board.manhattan()); }
+        public int compareTo (SearchNode that) { return priority() - that.priority(); }
 
     }
 
